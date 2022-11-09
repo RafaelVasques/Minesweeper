@@ -14,8 +14,10 @@ import { difficulties } from './modules/difficulties.js';
 
         const rolls = numberRolls;
         const columns = numberColumns;
+
         const mines = numberMines;
         let isGameOver = [false, ''];
+        let flagClickIsActive = false;
         
         const gameMenu = new GameMenu();
         gameMenu.show();
@@ -40,8 +42,19 @@ import { difficulties } from './modules/difficulties.js';
                 htmlNode.addEventListener('click', () => {
 
                     if(isGameOver[0] === false){
-                        playField.revealNodes(htmlNode, htmlPlayField.openHtmlNode);
-                        isGameOver = game.gameOverChecker(playField.getPlayField());
+
+                        if(flagClickIsActive === false){
+                            playField.revealNodes(htmlNode, htmlPlayField.openHtmlNode);
+                            isGameOver = game.gameOverChecker(playField.getPlayField());
+                        }else{
+                            let flagsLeft = game.getFlagsLeft();
+
+                            if(flagsLeft > 0){
+                                playField.flagNode(htmlNode, htmlPlayField.flagHtmlNode);
+                                game.flagsLeftUpdater();
+                            };
+                        }
+                        
                     };
 
                     if(isGameOver[1] === 'win'){
@@ -59,7 +72,7 @@ import { difficulties } from './modules/difficulties.js';
                     e.preventDefault();
                     if(isGameOver[0] === false){
 
-                        let flagsLeft = game.getNumberFlagsLeft();
+                        let flagsLeft = game.getFlagsLeft();
 
                         if(flagsLeft > 0){
                             playField.flagNode(htmlNode, htmlPlayField.flagHtmlNode);
@@ -76,6 +89,36 @@ import { difficulties } from './modules/difficulties.js';
         nodeClickHandler(playField);
 
         function menuOptionsClickHandler(){
+
+            const flagClicktButton = document.querySelector('.button__flag-click');
+            flagClicktButton.addEventListener('click', () => {
+                                
+                if(isGameOver[0] === false){
+
+                    if(flagClickIsActive === false){
+                        flagClickIsActive = true;
+                    }else{
+                        flagClickIsActive = false;
+                    };
+                    
+                    console.log(flagClickIsActive);
+
+                    const nodesHide = document.querySelectorAll('.hide');
+                    nodesHide.forEach(node =>{
+
+                        // const grayFlagIsShow = node.classList.contains('flag__click');
+                         
+                        if(flagClickIsActive === true){
+                            node.classList.add('flag__click');
+                        }else{
+                            node.classList.remove('flag__click');
+                        };
+
+                    });
+  
+                };
+
+            });
             
             const restartButton = document.querySelector('.button__restart');
             restartButton.addEventListener('click', () => {
@@ -100,7 +143,7 @@ import { difficulties } from './modules/difficulties.js';
             const backToMainMenuButton = document.querySelector('.home');
             backToMainMenuButton.addEventListener('click', () => {
                 gameMenu.hide();
-                // htmlPlayField.hide();
+                htmlPlayField.hide();
                 playFieldArea.hide();
                 mainMenu.show();
             });

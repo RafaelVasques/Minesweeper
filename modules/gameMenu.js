@@ -11,18 +11,14 @@ export default class GameMenu {
             gameMenuHeader.className = 'game__menu-header';
 
             const gameName = document.createElement('div');
-            gameName.innerHTML = 'Minesweeper by Rafael Vasques';
+            gameName.innerHTML = 'Minesweeper by Rafael Vasques ';
 
             const version = document.createElement('span');
             version.className = 'version';
-            version.innerHTML = 'ver1.0';
-
-            // const playFieldSize = document.createElement('div');
-            // playFieldSize.innerHTML = '19x16 Playfield';
+            version.innerHTML = 'ver2.0';
 
             gameName.appendChild(version);
             gameMenuHeader.appendChild(gameName);
-            // gameMenuHeader.appendChild(playFieldSize);
 
             gameMenuArea.appendChild(gameMenuHeader);
             return gameMenuArea;
@@ -31,8 +27,6 @@ export default class GameMenu {
 
         const _createHtmlPlayFieldSize = () => {
             const playFieldSize = document.createElement('div');
-            // playFieldSize.innerHTML = '19x16 Playfield';
-
             return playFieldSize;
         };
 
@@ -53,7 +47,7 @@ export default class GameMenu {
             flagsLeftCounter.className = 'flagsLeftCounter';
             flagsLeftCounter.innerHTML = '00';
 
-            const flag = document.createElement('img');'./images/flag.svg';
+            const flag = document.createElement('img');
             flag.src = './images/flag.svg';
 
             const timerBox = document.createElement('div');
@@ -62,6 +56,12 @@ export default class GameMenu {
 
             const controls = document.createElement('div');
             controls.className = 'controls';
+
+            const whiteFlagImg = document.createElement('img');
+            whiteFlagImg.src = './images/white_flag.png';
+
+            const flagClickButton = document.createElement('div');
+            flagClickButton.className = 'button__flag-click button';
 
             const restartButton = document.createElement('div');
             restartButton.className = 'button__restart button';
@@ -80,6 +80,8 @@ export default class GameMenu {
             gameInfo.appendChild(flagsLeftBox);
             gameInfo.appendChild(timerBox);
 
+            flagClickButton.appendChild(whiteFlagImg);
+            controls.appendChild(flagClickButton);
             controls.appendChild(restartButton);
             homeButton.appendChild(homeButtonImg);
             controls.appendChild(homeButton);
@@ -94,7 +96,7 @@ export default class GameMenu {
         const _createHtmlLooseMessage = () => {
             const gameStatus = document.createElement('div');
             gameStatus.className = 'game__status-loose info__box';
-            gameStatus.innerHTML = 'You Loose!';
+            gameStatus.innerHTML = 'Loose!';
 
             return gameStatus;
         };
@@ -102,7 +104,7 @@ export default class GameMenu {
         const _createHtmlWinMessage = () => {
             const gameStatus = document.createElement('div');
             gameStatus.className = 'game__status-win info__box';
-            gameStatus.innerHTML = 'You Win!';
+            gameStatus.innerHTML = 'Win!';
 
             return gameStatus;
         };

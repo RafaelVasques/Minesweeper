@@ -10,6 +10,7 @@ export default class HtmlPlayField {
             
             const htmlPlayField = document.createElement('div');
             htmlPlayField.className = 'play__field';
+            // htmlPlayField.style.marginTop = "200px";
 
             for (let i = 0; i < this._Rolls; i++) {
 
@@ -41,11 +42,13 @@ export default class HtmlPlayField {
 
     show(){
         const playFieldArea = document.querySelector('.game__area');
+        // const playFieldArea = document.querySelector('.container');
         playFieldArea.appendChild(this._htmlPlayField);
     };
 
     hide(){
         const playFieldArea = document.querySelector('.game__area');
+        // const playFieldArea = document.querySelector('.container');
         playFieldArea.removeChild(this._htmlPlayField);
     };
 
@@ -84,10 +87,13 @@ export default class HtmlPlayField {
 
     flagHtmlNode(htmlNode){
         
-        if(htmlNode.className === 'node hide'){
-            htmlNode.className = "node hide flag";
+        const flagIsShow = htmlNode.classList.contains('flag');
+        const isNodeHide = htmlNode.classList.contains('hide');
+
+        if(flagIsShow === false && isNodeHide === true){
+            htmlNode.classList.add('flag')
         }else{
-            htmlNode.className = "node hide";
+            htmlNode.classList.remove('flag')
         };
         
     };

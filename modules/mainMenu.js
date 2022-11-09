@@ -23,7 +23,7 @@ export default class MainMenu {
             autorName.innerHTML = 'By Rafael Vasques';
 
             let version = document.createElement('p');
-            version.innerHTML = 'ver1.0';
+            version.innerHTML = 'ver2.0';
 
             autor.appendChild(autorName);
             autor.appendChild(version);
@@ -98,14 +98,18 @@ export default class MainMenu {
 
             const _moveDificultySelection = () => {
                 
+                const difficultyBoxSize = 140;
+                const difficultyBoxMargin = 14;
+                const pixelsToMove = difficultyBoxSize + difficultyBoxMargin;
+                
                 forwardButton.addEventListener('click', () => {
                     
                     const amountOfDifficulties = difficultyWrapper.childElementCount;
-                    const difficultyWrapperSize = -194 * amountOfDifficulties;
+                    const difficultyWrapperSize = -pixelsToMove * amountOfDifficulties;
         
-                    if(this.left > difficultyWrapperSize + 194){
-                        difficultyWrapper.style.left = parseInt(this.left-194)+'px';
-                        this.left = this.left-194;
+                    if(this.left > difficultyWrapperSize + pixelsToMove){
+                        difficultyWrapper.style.left = parseInt(this.left-pixelsToMove)+'px';
+                        this.left = this.left-pixelsToMove;
                     };
             
                 });
@@ -113,8 +117,8 @@ export default class MainMenu {
                 backwardButton.addEventListener('click', ()=>{
 
                     if(this.left < 0){
-                        difficultyWrapper.style.left = parseInt(this.left+194)+'px';
-                        this.left = this.left+194;
+                        difficultyWrapper.style.left = parseInt(this.left+pixelsToMove)+'px';
+                        this.left = this.left+pixelsToMove;
                     };
 
                 });

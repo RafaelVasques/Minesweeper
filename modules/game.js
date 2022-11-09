@@ -87,7 +87,7 @@ export default class Game {
 
     };
 
-    getNumberFlagsLeft(){
+    getFlagsLeft(){
         return this._flagsLeftElement.innerHTML
     };
 

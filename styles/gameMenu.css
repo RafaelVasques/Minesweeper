@@ -1,0 +1,180 @@
+.info__box {
+    padding: 8px;
+    border: 1px #A54EB4 solid;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.game__menu{
+    display: block;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 16px;
+    padding: 13px 27%;
+    border-radius: 5px;
+    background-color: #1F212C;
+}
+
+.game__menu-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 18px;
+    color: white;
+}
+
+.game__menu-header .version{
+    font-size: 9pt;
+}
+
+.game__controls{
+    margin-top: 13px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+}
+
+.game__info{
+    color: white;
+}
+
+.flags__left {
+    margin: 0 10px 13px 0;
+    
+}
+
+.flags__left div{
+    display: inline-flex;
+}
+
+.flags__left img{
+    width: 13px;
+    margin-right: 5px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.timer{
+    margin-right: 10px;
+}
+
+.game__status-loose{
+    color: red;
+}
+
+.game__status-win{
+    color: greenyellow;
+}
+
+.controls {
+    color: white;
+}
+
+.button__flag-click {
+    margin-right: 10px;
+}
+
+.button__flag-click img {
+    width: 18px;
+}
+
+.button__restart {
+    margin-right: 10px;
+}
+
+.home img{
+    width: 22px;
+}
+
+@media screen and (max-width: 1207px) {
+    
+    .game__menu{
+        padding: 13px 15%;
+    }
+
+}
+
+@media screen and (max-width: 930px) {
+    
+    .game__menu{
+        padding: 13px 3%;
+    }
+
+}
+
+@media screen and (max-width: 538px) {
+    
+    .game__menu-header{
+        display: none;
+    }
+
+    .game__header-title{
+        width: 160px;
+    }
+    
+    .game__header-playfield-size{
+        width: 70px;
+        text-align: right;
+    }
+
+    .game__menu{
+        height: 63px;
+    }
+
+    .game__controls{
+        font-size: 17px;
+        margin-top: 0;
+    }
+
+    .button__flag-click img {
+        width: 14px;
+    }
+    
+    .home img{
+        width: 14px;
+    }
+
+    .flags__left img{
+        width: 7px;
+    }
+}
+
+@media screen and (max-width: 375px){
+
+    .game__menu{
+        height: 54px;
+    }
+    
+    .game__controls{
+        font-size: 11px;
+    }
+
+    .button__flag-click img {
+        width: 10px;
+    }
+
+    .home img{
+        width: 10px;
+    }
+
+    .flags__left img{
+        display: none;
+    }
+
+}
+
+/* @media screen and (max-width: 375px) {
+    
+    .game__controls{
+        font-size: 17px;
+    }
+
+    .home img{
+        width: 14px;
+    }
+
+    .flags__left img{
+        width: 7px;
+    }
+
+} */

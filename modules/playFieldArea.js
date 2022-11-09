@@ -4,9 +4,15 @@ export default class PlayFieldArea {
 
         const _createGameArea = () => {
 
+            const gameAreaWrapper = document.createElement('div');
+            gameAreaWrapper.className = 'game__area-wrapper';
+
             const gameArea = document.createElement('div');
             gameArea.className = 'game__area';
-            return gameArea
+
+            gameAreaWrapper.appendChild(gameArea);
+
+            return gameAreaWrapper
 
         };
 

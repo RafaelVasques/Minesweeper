@@ -1,0 +1,12 @@
+.game__area-wrapper {
+    display: table;
+}
+
+@media screen and (max-width: 768px){
+    
+    .game__area {
+        padding: 50% 0;
+        height: 0;
+    }
+    
+}
