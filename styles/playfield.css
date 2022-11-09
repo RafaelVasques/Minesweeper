@@ -126,5 +126,9 @@
     .flag {
         background-size: 13px;
     }
+
+    .flag__click {
+        background-size: 13px;
+    }
     
 }

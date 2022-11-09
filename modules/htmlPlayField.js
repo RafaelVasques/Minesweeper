@@ -10,7 +10,6 @@ export default class HtmlPlayField {
             
             const htmlPlayField = document.createElement('div');
             htmlPlayField.className = 'play__field';
-            // htmlPlayField.style.marginTop = "200px";
 
             for (let i = 0; i < this._Rolls; i++) {
 
